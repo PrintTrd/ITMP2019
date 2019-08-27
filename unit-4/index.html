@@ -1,3 +1,4 @@
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,59 +7,82 @@
     body{
         margin:0;
     }
-#rainbow{
-    --size: 50px;
-    --hue: 0;
-    font-size: 0;
+    #rainbow{
+        --size: 80px;
+        --hue: 0;
+        font-size: 0;
     }
-.fuse{
-    transition: all .3s;
-    height:var(--size);
-    width: var(--size);
-    background: hsl(var(--hue),90%,70%);
-    display: inline-block;
-/*    transform: scale(0);
-    opacity: 0;
-    margin: 0;*/
-}
-#howManyRainbowStripsDoYouWantHeu{
-    padding: 0.5em;
-    width: 2em;
-    margin-bottom: 0.2em; 
-    font-size: 2em;
-    border: 1px solid #eee;
-    border-radius: 0.1em; 
-}
-button{
-    font-size: 2em;
-    border: 1px solid #eee;
-    border-radius: 0.1em; 
-    padding: 0.5em;
-}
+    .fuse{
+        transition: all .3s;
+        height: var(--size);
+        width: var(--size);
+        border-radius: 100%; 
+        background: hsl(var(--hue),90%,50%);
+        display: inline-block;
+        transform: scale(0);
+        opacity: 0;
+        margin: 1px;
+    }
+    #howManyRainbowStripsDoYouWantHeu{
+        padding: 0.5em;
+        width: 2em;
+        margin-bottom: 0.2em; 
+        font-size: 2em;
+        border: 1px solid #eee;
+        border-radius: 0.1em; 
+    }
+    button{
+        font-size: 2em;
+        border: 1px solid #eee;
+        border-radius: 0.1em; 
+        padding: 0.5em;
+    }
 </style>
 </head>
 <body>
     <input type="number" id="howManyRainbowStripsDoYouWantHeu" min="0" max="999" value="6">
-    <button onclick="rainbowHaiDooNoy()">Go!</button>
-    <button onclick="playAnimation()">Play!</button>
+    <button onclick="showRainbow()">Go!</button>
+
+    <button onclick="playAnimationHaiDoNhiySiHuem()">Play!</button>
+    <button onclick="stopAnimationHaiDoNhiySiHuem()">Stop!</button>
+
     <div id="rainbow">
     </div>
     <script type="text/javascript">
-        function rainbowHaiDooNoy(){
+        function showRainbow(){
             theNum = howManyRainbowStripsDoYouWantHeu.value;
             rainbow.innerHTML = '';
-            // for (var i = 0; i < theNum; i++) {
-            //     rainbow.innerHTML += `<div class="fuse" style="--hue:${i*(360/theNum)}"></div>`;
-            // }
+            for (var i = 0; i < theNum; i++) {
+                rainbow.innerHTML += `<div class="fuse" style="--hue:${i*(360/theNum)}" id="f-${i}"></div>`;
+            }
             for (let i = 0; i < theNum; i++) {
                 setTimeout(function(){
-                    rainbow.innerHTML += `<div class="fuse" style="--hue:${i*(360/theNum)}"></div>`;
-                }, 1000*(theNum-i))
+                    document.querySelector(`#f-${i}`).style.transform = 'scale(1)';
+                    document.querySelector(`#f-${i}`).style.opacity = '1';
+                },20*i);
             }
         }
-        // function playAnimation(){
-
-        // }
+        showRainbow();
+        function playAnimationHaiDoNhiySiHuem(){
+            theFuse = document.querySelectorAll('.fuse');
+            theFuseSize = theFuse.length;
+            j = theFuseSize-1;
+            k = 0;
+            thePlay = setInterval(function(){
+                if (k>= theFuseSize) {k=0
+                }
+                if (j>= theFuseSize) {j=0
+                }
+                theFuse[k].style.transform = "scale(2)";
+                theFuse[j].style.transform = "scale(1)";
+                k++;
+                j++;
+            },300);
+        }
+        function stopAnimationHaiDoNhiySiHuem(){
+            clearInterval(thePlay);
+            theFuse[j].style.transform = "scale(1)";
+        }
     </script>
 </body>
 </html>
