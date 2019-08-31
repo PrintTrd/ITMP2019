@@ -8,7 +8,7 @@
         margin:0;
     }
     #rainbow{
-        --size: 80px;
+        --size: 52px;
         --hue: 0;
         font-size: 0;
     }
@@ -16,8 +16,8 @@
         transition: all .3s;
         height: var(--size);
         width: var(--size);
-        border-radius: 100%; 
-        background: hsl(var(--hue),90%,50%);
+        border-radius: 5px; 
+        background: hsl(var(--hue),90%,80%);
         display: inline-block;
         transform: scale(0);
         opacity: 0;
@@ -40,7 +40,7 @@
 </style>
 </head>
 <body>
-    <input type="number" id="howManyRainbowStripsDoYouWantHeu" min="0" max="999" value="6">
+    <input type="number" id="howManyRainbowStripsDoYouWantHeu" min="0" max="999" value="360">
     <button onclick="showRainbow()">Go!</button>
     <button onclick="playAnimationHaiDoNhiySiHuem()">Play!</button>
     <button onclick="stopAnimationHaiDoNhiySiHuem()">Stop!</button>
