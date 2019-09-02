@@ -6,6 +6,7 @@
     <style type="text/css">
     body{
         margin:0;
+        background-image: linear-gradient(to bottom right, #ddd6f3, #ffeeee);
     }
     #rainbow{
         --size: 52px;
@@ -22,6 +23,10 @@
         transform: scale(0);
         opacity: 0;
         margin: 1px;
+    }
+    .center {
+        text-align: center;
+        margin-top: 1em;
     }
     #howManyRainbowStripsDoYouWantHeu{
         padding: 0.5em;
@@ -40,10 +45,12 @@
 </style>
 </head>
 <body>
-    <input type="number" id="howManyRainbowStripsDoYouWantHeu" min="0" max="999" value="360">
-    <button onclick="showRainbow()">Go!</button>
-    <button onclick="playAnimationHaiDoNhiySiHuem()">Play!</button>
-    <button onclick="stopAnimationHaiDoNhiySiHuem()">Stop!</button>
+    <div class="center">
+        <input type="number" id="howManyRainbowStripsDoYouWantHeu" min="0" max="999" value="360">
+        <button onclick="showRainbow()">Go!</button>
+        <button onclick="playAnimationHaiDoNhiySiHuem()">Play!</button>
+        <button onclick="stopAnimationHaiDoNhiySiHuem()">Stop!</button>
+    </div>
 
     <div id="rainbow">
     </div>
