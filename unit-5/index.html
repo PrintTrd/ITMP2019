@@ -9,6 +9,12 @@
         opacity: .2;
         cursor: pointer;
     }
+    .round{
+        border-radius: 30px !important;
+    }
+    body{
+        background-image: linear-gradient(to bottom right, #ddd6f3, #faaca8);
+    }
 </style>
 </head>
 <body class="screen v-middle-flex">
@@ -19,16 +25,18 @@
             </box>
             <box col="6">
                 <div class="bg-white round shadow padding-l">
+                    <!-- star -->
                     <div class="t-right">
                         <i class="fas fa-star cl-amber" onclick="favorite()" id="u_fav"></i>
                     </div>
+                    <!-- image -->
                     <sp class="l"></sp>
                     <img src="" class="circle shadow" id="u_profile">
                     <sp></sp>
                     <!-- username -->
-                    <h1 class="cl-purple-a4">@<span id="u_userName">_______</span></h1>
+                    <h1 class="cl-lightblue-a4">@<span id="u_userName">_______</span></h1>
                     <!-- city -->
-                    <h4><i class="fas fa-map-marker-alt"></i> <span id="u_city">_______</span></h4>
+                    <h4><i class="fas fa-map-marker-alt cl-red-a4"></i> <span id="u_city">_______</span></h4>
                     <sp></sp>
                     <!-- name -->
                     <h2 id="u_name">_______ _______</h2>
@@ -38,9 +46,9 @@
                     <sp></sp>
                     <p>
                         <!-- web -->
-                        <i class="fas fa-globe-americas"></i> <a href="_______" id="u_web">_______</a> &nbsp;&nbsp;
+                        <i class="fas fa-globe-americas cl-lightblue-a4"></i> <a href="_______" id="u_web">_______</a> &nbsp;&nbsp;
                         <!-- email -->
-                        <i class="fas fa-envelope"></i> <a href="mailto:_______" id="u_mail">_______</a>
+                        <i class="fas fa-envelope cl-lightblue-a4"></i> <a href="mailto:_______" id="u_mail">_______</a>
                     </p>
                     
                 </div>
@@ -72,7 +80,7 @@
         }
         function renData(){
             u_fav.style.opacity = fav[nowIndex]+".2";
-            u_profile.src = `https://picsum.photos/id/${user[nowIndex].id}0/200/200`;
+            u_profile.src = `https://picsum.photos/id/${user[nowIndex].id}2/200/200`;
             u_userName.innerText = user[nowIndex].username;
             u_city.innerText = user[nowIndex].address.city;
             u_name.innerText = user[nowIndex].name;
