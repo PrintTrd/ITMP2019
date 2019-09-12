@@ -5,7 +5,7 @@
     <meta charset=utf-8>
     <meta name=description content="">
     <meta name=viewport content="width=device-width, initial-scale=1">
-​
+​   <link rel="stylesheet" type="text/css" href="https://jabont.com/jayss/jayss.css">
     <style type="text/css">
         body{
             margin:0;
@@ -16,11 +16,19 @@
             from{transform: rotate(5deg);}
             to{transform: rotate(-5deg);}
         }
-        button{
-            font-size: 2em;
-            border: 1px solid #eee;
-            border-radius: 0.1em; 
-            padding: 0.5em;
+        .button {
+          display: inline-block;
+          border-radius: 15px;
+          background-color: #fdf9cf;
+          border: none;
+          color: #773b07;
+          text-align: center;
+          font-family: fantasy;
+          font-size: 28px;
+          padding: 0px;
+          width: 62px;
+          cursor: pointer;
+          margin: 5px;
         }
         .center {
             text-align: center;
@@ -107,7 +115,14 @@
 <body>
     <div id="wrap">
         <div id="char" x="0" y="4"></div>
-        <!-- <img src=""> -->
+    <div class="t-right">
+        <button class="button" onclick="gameStop()">||</button>
+    </div>
+    <div class="center">
+        <h1>Catch the Bananas</h1>
+        <h2>Score: </h2>
+    </div>
+
     </div>
     <div id="control">
         <button class="cmd" onclick="moveChar(-1)"><</button>
@@ -116,7 +131,7 @@
 ​
     <script>
         nowID = 0;
-
+        gameStart();
         function gameStart(){
             letplay = setInterval(function(){
                 newFruit();
@@ -161,7 +176,7 @@
         function rand(max) {
             return Math.floor(Math.random() * Math.floor(max));
         }
-        function gameStop() {
+        function gameStop(){
             clearInterval(letplay);
             clearInterval(skyfall);
         }
