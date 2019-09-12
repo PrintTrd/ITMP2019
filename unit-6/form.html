@@ -22,29 +22,38 @@
     -->
     <form onsubmit="return register()">
         <h2>ลงทะเบียนร่วมงาน</h2>
-        <input type="text" class="info" name="nickname" placeholder="ชื่อ"  required>
+        <input type="text" class="sid" name="sid" placeholder="รหัสนักศึกษา" required>
+        <input type="text" class="name" name="name" placeholder="ชื่อ" required>
+        <input type="text" class="lastname" name="surname" placeholder="นามสกุล" required>
         <button>ลงทะเบียน</button>
     </form>
     <br><hr><br>
     <table>
         <thead>
             <th>ลำดับที่</th>
+            <th>รหัสนักศึกษา</th>
             <th>ชื่อ</th>
+            <th>นามสกุล</th>
         </thead>
         <tbody id="registerList">
         </tbody>
     </table>
 ​
     <script>
-        var i = 1;
+        let i = 1;
         function register(){
             people = document.createElement("tr");
             people.innerHTML = `
             <td>${i}</td>
-            <td>${document.querySelector('.info').value}</td>
+            <td>${document.querySelector('.sid').value}</td>
+            <td>${document.querySelector('.name').value}</td>
+            <td>${document.querySelector('.lastname').value}</td>
             `;
             registerList.appendChild(people);
-            document.querySelector('.info').value = "";
+            document.querySelector('.sid').value = "";
+            document.querySelector('.name').value = "";
+            document.querySelector('.lastname').value = "";
+            console.log(i);
             i++;
             return false;
         }
