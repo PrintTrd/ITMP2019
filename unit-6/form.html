@@ -14,13 +14,17 @@
             padding:.2em .5em;
             font-size: 1em;
         }
+        .center {
+            text-align: center;
+            margin-top: 1em;
+        }
     </style>
 </head>
 <body>
     <!-- ให้นักศึกษาทำแบบฟอร์ม รหัสนักศึกษา ชื่อ นามสกุล เมื่อกรอกแล้วจะไปลงตารางลงทะเบียนโดยต้องกรอกให้ครบทุกช่อง 
     โดยจะมีหมายเลขลำดับไล่ไปเรื่อยๆ และให้ทำการเคลียร์ค่าของช่องอินพุทเมื่อลงทะเบียนไปแล้ว
     -->
-    <form onsubmit="return register()">
+    <form onsubmit="return register()" class="center">
         <h2>ลงทะเบียนร่วมงาน</h2>
         <input type="text" class="sid" name="sid" placeholder="รหัสนักศึกษา" required>
         <input type="text" class="name" name="name" placeholder="ชื่อ" required>
@@ -28,7 +32,7 @@
         <button>ลงทะเบียน</button>
     </form>
     <br><hr><br>
-    <table>
+    <table align="center">
         <thead>
             <th>ลำดับที่</th>
             <th>รหัสนักศึกษา</th>
@@ -38,6 +42,8 @@
         <tbody id="registerList">
         </tbody>
     </table>
+
+
 ​
     <script>
         let i = 1;
