@@ -5,91 +5,80 @@
 <head>
 
 <title>Dom 3 - Add Fruit</title>
-
 <meta charset=utf-8>
-
 <meta name=description content="">
-
 <meta name=viewport content="width=device-width, initial-scale=1">
-
+<link href="https://fonts.googleapis.com/css?family=Itim&display=swap" rel="stylesheet">
 <style type="text/css">
+    body{
+        background-color: #fff27b;
+    }
 
+    h2 {
+        font-family: "Itim";
+        font-size: 50px;
+        color: #773b07;
+    }
+    .button {
+          display: inline-block;
+          border-radius: 15px;
+          background-color: #fdf9cf;
+          border: none;
+          color: #773b07;
+          text-align: center;
+          font-family: fantasy;
+          font-size: 28px;
+          padding: 20px;
+          width: 200px;
+          transition: all 0.5s;
+          cursor: pointer;
+          margin: 5px;
+    }
     #basket{
-
         width: 600px;
-
         font-size: 0;
-
         display: inline-block;
-
         padding:10px;
-
         background-color: antiquewhite;
-
         border-radius: 10px;
-
     }
 
     .fruit{
-
         background-size: 90%;
-
         background-color: white;
-
         background-position: center;
-
         width: 16%;
-
         padding-top: 16%;
-
         background-repeat: no-repeat;
-
         border-radius: 10%;
-
         display: inline-block;
-
         margin: 2%;
-
     }
 
     .f1{
-
         background-image: url("f1.png");
-
     }
 
     .f2{
-
         background-image: url("f2.jpg");
-
     }
 
     .f3{
-
         background-image: url("f3.jpg");
-
     }
 
     .f4{
-
         background-image: url("f4.jpg");
-
     }
 
     .f5{
-
         background-image: url("f5.png");
-
     }
 
     .addFruit{
-
         width: 80px;
-
         padding:10px;
-
         background-color: #ddd;
-
     }
     .center {
         text-align: center;
@@ -103,11 +92,11 @@
 <body>
 
 <div align="center">
-    <h2 align="center">เพิ่มผลไม้</h2>
-    <button onclick="addFruit(1)">กล้วย</button>
-    <button onclick="addFruit(2)">ส้ม</button>
-    <button onclick="addFruit(3)">แตงโม</button>
-    <button onclick="addFruit(4)">องุ่น</button>
+    <h2 align="center">ตะกร้าผลไม้</h2>
+    <button onclick="addFruit(1)" class="button">กล้วย</button>
+    <button onclick="addFruit(2)" class="button">ส้ม</button>
+    <button onclick="addFruit(3)" class="button">แตงโม</button>
+    <button onclick="addFruit(4)" class="button">องุ่น</button>
 </div>
 <hr>
 <div class="center">
@@ -115,7 +104,7 @@
         <div class="fruit f1"></div>
     </div>
     <br></br>
-    <button onclick = "eat()"> หยิบกิน </button>
+    <button onclick = "eat()" class="button"> หยิบกิน </button>
 </div>
 <script>
 function addFruit(i){
