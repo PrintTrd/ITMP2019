@@ -6,6 +6,7 @@
     <meta name=description content="">
     <meta name=viewport content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css?family=Dokdo&display=swap" rel="stylesheet">
+
     <style type="text/css">
         body{
             margin:0;
@@ -102,15 +103,11 @@
             transition: all .1s;
             animation: swing .3s infinite alternate ;
         }
-        #heart{
+        .heart{
             padding-left: 10px;
             background-image: url('heart.png');
             height: 5%;
             width: 5%;
-/*            background-size: contain;
-            background-position: center bottom;
-            background-repeat: no-repeat;
-            position: absolute;*/
         }
         [x="0"]{left:0%;}
         [x="1"]{left:20%;}
@@ -130,16 +127,16 @@
         <div id="char" x="0" y="4"></div>
     <div>
         <br></br>
-        <img src="heart.png" id="heart">
-        <img src="heart.png" id="heart">
-        <img src="heart.png" id="heart">
+        <img src="heart.png" id="heart1" class="heart">
+        <img src="heart.png" id="heart2" class="heart">
+        <img src="heart.png" id="heart3" class="heart">
         
         <img src="https://img.icons8.com/ios-filled/48/000000/pause-squared.png" class="btn" id="btn_pause" onclick="gameStop()" align="right">
         <img src="https://img.icons8.com/ios-filled/50/000000/play.png" class="btn" id="btn_play" onclick="gameStart()" align="right">
     </div>
     <div class="center">
         <a href="index.html" ><img src="https://img.icons8.com/cotton/64/000000/banana.png" align="center"></a>
-        <h1 align="center" id="score">Score: XX</h1>
+        <h1 align="center" id="score">Score: 0</h1>
     </div>
 
     </div>
@@ -151,7 +148,9 @@
     <script>
         nowID = 0;
         myscore = 0;
+        heart = 3;
         gameStart();
+
         function gameStart(){
             btn_pause.classList.remove("btn-hide");
             btn_play.classList.add("btn-hide");
@@ -162,6 +161,7 @@
                 fallingSlowly();
             },1000)
         }
+
         function newFruit(){
             let f = document.createElement("div");
             f.setAttribute("x", rand(5));
@@ -170,18 +170,6 @@
             f.setAttribute("id","fruit_"+nowID);
             wrap.appendChild(f);
             nowID++;
-        }
-        function fallingSlowly(){
-            let f = document.querySelectorAll(".fruit");
-            for (var i = 0; i < f.length; i++) {
-                let nowY = f[i].getAttribute("y");
-                nowY = parseInt(nowY);
-                f[i].setAttribute("y",nowY+1);
-                if (nowY == 4) {
-                    //แก้เพิ่มตรงนี้
-                    f[i].outerHTML = "";
-                }
-            }
         }
 
         function moveChar(step){
@@ -194,18 +182,75 @@
                 step = 0;
             }
             char.setAttribute("x",nowX+step);
-            if (
-                char.x <= (f1.x+142.09)
-                && f1.x <= (char.x+189.46)
-                && char.y <= (f1.y+115.55)
-                && f1.y <= (char.y+154.07)
-            ) {
-                ++myscore;
-                score.innerText = myscore;
-                onsole.log(myscore);
-                reset();
+        }
+
+        function fallingSlowly(){
+            let f1 = document.querySelectorAll(".fruit.f1");
+            for (var i = 0; i < f1.length; i++) {
+                let nowY = f1[i].getAttribute("y");
+                let f1X = f1[i].getAttribute("x");
+                let charY = char.getAttribute("y");
+                let nowX = char.getAttribute("x");
+                nowX = parseInt(nowX);
+                charY = parseInt(charY);
+                nowY = parseInt(nowY);
+                f1X = parseInt(f1X);
+                f1[i].setAttribute("y",nowY+1);
+                if (nowY == 4) {
+                    if (
+                        nowX == (f1X)
+                        && f1X == (nowX)
+                        && charY == (nowY)
+                        && nowY == (charY)
+                        ){
+                        ++myscore;
+                        score.innerText = "Score: "+myscore;
+                        f1[i].outerHTML = "";
+                        onsole.log(myscore);
+                        reset();
+                    }
+                    f1[i].outerHTML = "";
+                }
+            }
+            let f0 = document.querySelectorAll(".fruit.f0");
+            for (var i = 0; i < f0.length; i++) {
+                let nowY = f0[i].getAttribute("y");
+                let f0X = f0[i].getAttribute("x");
+                let charY = char.getAttribute("y");
+                let nowX = char.getAttribute("x");
+                nowX = parseInt(nowX);
+                charY = parseInt(charY);
+                nowY = parseInt(nowY);
+                f0X = parseInt(f0X);
+                f0[i].setAttribute("y",nowY+1);
+                if (nowY == 4) {
+                    if (
+                        nowX == (f0X)
+                        && f0X == (nowX)
+                        && charY == (nowY)
+                        && nowY == (charY)
+                        ){
+                        --heart;
+                        if (heart == 0) {
+                            heart1.classList.add("btn-hide");
+                            gameStop();
+                            score.innerText = "GAME OVER!";
+                        } else if (heart == 1) {
+                            heart2.classList.add("btn-hide");
+                        } else if (heart == 2) {
+                            heart3.classList.add("btn-hide");
+                        } else {
+                            continue;
+                        }
+                        f0[i].outerHTML = "";
+                        onsole.log(heart);
+                        reset();
+                    }
+                    f0[i].outerHTML = "";
+                }
             }
         }
+
         function rand(max) {
             return Math.floor(Math.random() * Math.floor(max));
         }
