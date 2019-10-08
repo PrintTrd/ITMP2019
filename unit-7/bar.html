@@ -14,7 +14,7 @@
     }
     .bar .chart{
         width: 10px;
-        background: red;
+        background: aqua;
         height: 1em;
         display: inline-block;
         transition: all 3s;
@@ -37,6 +37,9 @@
     #paragraph.small{
         transform: scale(0.2);
     }
+    .fullscreen {
+        height: 100vh;
+    }
 </style>
 </head>
 <body>
@@ -46,32 +49,32 @@
             <p>Please scroll down</p>
         </div>
     </div>
-    <div class="fullscreen bg-white padding-l v-middle-flex">
+    <div id="content1" class="fullscreen bg-white padding-l v-middle-flex">
         <div class="to-center">
             <h1>My Learning</h1>
             <sp class="xl"></sp>
             <div class="t-left">
                 <div class="bar">
                     <div class="label">Thai</div>
-                    <div class="chart close" style="width: 180px"></div>
-                </div>
-                <div class="bar">
-                    <div class="label">English</div>
                     <div class="chart close" style="width: 200px"></div>
                 </div>
                 <div class="bar">
+                    <div class="label">English</div>
+                    <div class="chart close" style="width: 180px"></div>
+                </div>
+                <div class="bar">
                     <div class="label">Sciene</div>
-                    <div class="chart close" style="width: 20px"></div>
+                    <div class="chart close" style="width: 80px"></div>
                 </div>
                 <div class="bar">
                     <div class="label">Math</div>
-                    <div class="chart close" style="width: 40px"></div>
+                    <div class="chart close" style="width: 50px"></div>
                 </div>
             </div>
         </div>
 
     </div>
-    <div class="fullscreen bg-smoke padding-l v-middle-flex">
+    <div id="content2" class="fullscreen bg-smoke padding-l v-middle-flex">
         <div class="to-center">
             <h1>I'm Genius, right?</h1>
             <sp class="xl"></sp>
@@ -86,7 +89,56 @@
         </div>
     </div>
     <div id="topLine">
-        
+
     </div>
+
+   <script type="text/javascript">
+        window.addEventListener("scroll", topLineRender);
+        window.addEventListener("scroll", checkAnimationPage);
+        function topLineRender() {
+            maxHeight = document.body.getBoundingClientRect().height - window.innerHeight;
+            nowScrollPoint = window.pageYOffset;
+            widthTopLine = Math.ceil((nowScrollPoint * 100) / maxHeight)
+            //Set width
+            topLine.style.width = `${widthTopLine}%`
+        }
+        function checkAnimationPage() {
+            checkPoint = window.pageYOffset + (window.innerHeight / 2);
+            //check content 1
+            if (checkPoint >= content1.offsetTop &&
+                checkPoint < (content1.offsetTop + content1.getBoundingClientRect().height)) {
+                animationChart(true);
+            } else {
+                animationChart(false);
+            }
+            //check content 2
+            if (checkPoint >= content2.offsetTop &&
+                checkPoint < (content2.offsetTop + content2.getBoundingClientRect().height)) {
+                animationGenius(true);
+            } else {
+                animationGenius(false);
+            }
+        }
+        function animationChart(x) {
+            chart = document.getElementsByClassName('chart');
+            if (x) {
+                for (let i = 0; i < chart.length; i++) {
+                    chart[i].classList.remove('close')
+                }
+            } else {
+                for (let i = 0; i < chart.length; i++) {
+                    chart[i].classList.add('close')
+                }
+            }
+        }
+        function animationGenius(x) {
+            if (x) {
+                paragraph.style.transform = `scale(1)`;
+            } else {
+                paragraph.style.transform = `scale(0.2)`;
+            }
+        }
+    </script>
+
 </body>
 </html>
