@@ -1,0 +1,26 @@
+#mybox{
+	width: 300px;
+	height: 300px;
+	background: grey;
+}
+/*div{
+	height: 100px;
+	background: red;
+}*/
+body{
+	margin: 0;
+}
+/*.w180{width: 180px}
+.w320{width: 320px}
+.w440{width: 440px}
+.w500{width: 500px; background: yellow;}*/
+@media (max-width: 768px) and (min-width: 401px){
+	#mybox{
+		background: yellow;
+	}	
+}
+@media (max-width: 400px){
+	#mybox{
+		background: red;
+	}
+}
