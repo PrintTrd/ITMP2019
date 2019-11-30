@@ -2,26 +2,67 @@
 <html>
 <head>
     <style>
+        /* custom scrollbar */
+    ::-webkit-scrollbar {
+        width: 15px;
+        background-color: #F5F5F5;
+    }
+    ::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+        border-radius: 10px;
+        /*background-color: #9fdfff;*/
+        background-image: -webkit-gradient(linear,
+                           left top,
+                           left bottom,
+                           color-stop(0.44, rgb(122,153,217)),
+                           color-stop(0.72, rgb(73,125,189)),
+                           color-stop(0.86, rgb(28,58,148)));
+    }
+    ::-webkit-scrollbar-thumb {
+        background: red;
+        background-color: #9fdfff;;
+        border-radius: 10px;
+        background-image: -webkit-gradient(linear,
+                               left bottom,
+                               left top,
+                               color-stop(0.44, rgba(122,153,217, 1)),
+                               color-stop(0.72, rgba(73,125,189, 0.5)),
+                               color-stop(0.86, rgba(28,58,148, 0)));
+    }
+    ::-webkit-scrollbar-thumb:hover {
+        background-image: -webkit-gradient(linear,
+                           left bottom,
+                           left top,
+                           color-stop(0.44, rgb(122,153,217)),
+                           color-stop(0.72, rgb(73,125,189)),
+                           color-stop(0.86, rgb(28,58,148)));
+    }
+
+    body {
+        font-family: 'Sue Ellen Francisco', cursive !important;
+        color: #fffced !important;
+    }
+
     .yoyo{
         width: 100px;
         height: 100px;
         position: fixed;
         right: 1em;
         bottom: 1em;
-        background: blue;
     }
     @keyframes blink{
         from{opacity: 1}
-        to{opacity: 0.3}
+        to{opacity: 0.5}
     }
     .blink{
-        animation: blink .2s infinite;
+        animation: blink .6s infinite;
     }
     #tooPla{
         height: 600px;
-        background: navy;
+        background: linear-gradient(180deg, rgba(9,60,121,1) 0%, rgba(3,24,90,1) 100%);
         position: relative;
-        overflow: hidden;
+        font-size: 3em;
+        text-align: center;
     }
     .fish{
         position: absolute;
@@ -30,57 +71,206 @@
     }
     .f1{
         top: 450px;
-        left: 80px;
+        right: 80px;
     }
     .f2{
         top: 700px;
-        left: 480px;
+        right: 480px;
     }
     .f3{
         top: 540px;
-        left: 60px;
+        right: 60px;
     }
     .f4{
         top: 580px;
-        left: 200px;
+        right: 200px;
     }
     .f5{
         top: 400px;
+        right: 400px;
+    }
+    .f6{
+        top: 3250px;
+        left: 80px;
+    }
+    .f7{
+        top: 4800px;
+        left: 480px;
+    }
+    .f8{
+        top: 3900px;
+        left: 60px;
+    }
+    .f9{
+        top: 3580px;
+        left: 200px;
+    }
+    .f10{
+        top: 2900px;
         left: 400px;
     }
+
+    .f11 {
+        position: absolute;
+        width: 100px;
+        transition: .1s
+        top: 1000px;
+        left: 500px;
+        transform: scale(8);
+/*        animation: drive 4.5s linear alternate infinite;*/
+    }
+/*    @keyframes drive {
+          from { left: 500px; }
+          to   { left: 550px; }
+    }*/
+    .f12 {
+        top: 2400px;
+        right: 200px;
+        transform: scale(3);
+/*        animation: swim 2s linear alternate infinite;*/
+    }
+/*    @keyframes swim {
+          from { right: 200px; }
+          to   { right: 300px; }
+    }
+    @keyframes light {
+          from { right: 325px; }
+          to   { right: 425px; }
+    }*/
+    .g1 {
+        top: 2850px;
+        left: 200px;
+    }
+    .g2 {
+        top: 2400px;
+        left: 100px;
+    }
+    .g3 {
+        top: 2400px;
+        left: 150px;
+    }
+    .g4 {
+        top: 2850px;
+        left: 50px;
+    }
+    .g5 {
+        top: 3850px;
+        right: 200px;
+    }
+    .g6 {
+        top: 3400px;
+        right: 100px;
+    }
+    .g7 {
+        top: 2380px;
+        right: 325px;
+/*        animation: light 2s linear alternate infinite;
+*/    }
+    .g8 {
+        top: 3850px;
+        right: 50px;
+    }
+
+
+    .glow1 {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background-color: #d1eabc;
+        box-shadow: 0 0 40px 20px #fff, 0 0 100px 50px #ff0, 0 0 100px 50px #0ff;
+    }
+    .glow2 {
+        width: 15px;
+        height: 15px;
+        background-color: #c6abff;
+        border-radius: 50%;
+        box-shadow: 0 0 60px 30px #fff, 0 0 100px 60px #f0f, 0 0 140px 90px #0ff;
+    }
+    .glow3 {
+        width: 10px;
+        height: 10px;
+        background-color: #e3deb0;
+        border-radius: 50%;
+        box-shadow: 0 0 40px 20px #fff, 0 0 100px 50px #ffc107, 0 0 100px 50px #ffeb3b;
+    }
+
+    .quote {
+        color: #fffced;
+        margin: auto;
+        padding: 7vw;
+        text-align: center;
+        justify-content: center;
+    }
+    .quote > p {
+        font-size: 4.5em
+    }
+    .quote > b {
+        font-size: 2em
+    }
 </style>
+
     <title>Hello Ocean World</title>
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="https://jabont.com/jayss/jayss.css">
+    <link href="https://fonts.googleapis.com/css?family=Sue+Ellen+Francisco&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <div id="d1" style="height: 400px;width: 100%;background: pink"></div>
-    <div id="d2" style="height: 400px;width: 100%;background: orchid"></div>
-    <div id="d3" style="height: 400px;width: 100%;background: pink"></div>
-    <div id="d4" style="height: 400px;width: 100%;background: orchid"></div>
+    <div id="d1" style="height: 450px;width: 100%;background: linear-gradient(180deg, rgba(26,168,213,1) 0%, rgba(20,132,182,1) 100%)">
+        <div class="quote">
+            <p>“There's nothing wrong with enjoying looking at the surface of the ocean itself, except that when you finally see what goes on underwater,you realize that you've been missing the whole point of the ocean. Staying on the surface all the time is like going to the circus and staring at the outside of the tent.”</p>
+            <br><br><b>― Dave Barry</b>
+        </div>
+
+    </div>
+    <div id="d2" style="height: 400px;width: 100%;background: linear-gradient(180deg, rgba(20,132,182,1) 0%, rgba(14,96,152,1) 100%)">
+        <div></div>
+    </div>
+    <div id="d3" style="height: 400px;width: 100%;background: linear-gradient(180deg, rgba(14,96,152,1) 0%, rgba(9,60,121,1) 100%)"></div>
+<!--     <div id="d4" style="height: 400px;width: 100%;background: orchid"></div>
     <div id="d5" style="height: 400px;width: 100%;background: pink"></div>
     <div id="d6" style="height: 400px;width: 100%;background: orchid"></div>
     <div id="d7" style="height: 400px;width: 100%;background: pink"></div>
-    <div id="d8" style="height: 400px;width: 100%;background: orchid"></div>
-        <div id="tooPla">
+    <div id="d8" style="height: 400px;width: 100%;background: orchid"></div> -->
+    <div id="tooPla">
+        <h2>Under the <i style="text-decoration: line-through;">sea</i> fish tank ~</h2>
         <img src="fish1.png" class="fish f1" id="f1">
         <img src="fish1.png" class="fish f2" id="f2">
         <img src="fish1.png" class="fish f3" id="f3">
         <img src="fish1.png" class="fish f4" id="f4">
         <img src="fish1.png" class="fish f5" id="f5">
     </div>
-    <div id="d9" style="height: 400px;width: 100%;background: pink"></div>
-    <div id="d10" style="height: 400px;width: 100%;background: orchid"></div>
-    <div id="d11" style="height: 400px;width: 100%;background: pink"></div>
+    <div id="d9" style="height: 400px;width: 100%;background: linear-gradient(180deg, rgba(3,24,90,1) 0%, rgba(0,0,70,1) 100%)">
+        <div class="fish g1 glow1" id="g1"></div>
+        <div class="fish g2 glow2" id="g2"></div>
+        <div class="fish g3 glow3" id="g3"></div>
+        <div class="fish g4 glow1" id="g4"></div>
+    </div>
+    <div id="d10" style="height: 400px;width: 100%;background: linear-gradient(180deg, rgba(0,0,70,1) 0%, rgba(5,1,18,1) 100%)">
+        <div class="fish g5 glow1" id="g5"></div>
+        <div class="fish g6 glow2" id="g6"></div>
+        <div class="fish g8 glow1" id="g8"></div>
+
+        <img src="submarine.png"class="f11" id="f11">
+        <div class="DeepFish" id="df">
+            <div class="fish g7 glow3" id="g7"></div>
+            <img src="DeepFish.png"class="fish f12" id="f12">
+        </div>
+        <img src="fish1.png" class="fish f6" id="f6">
+        <img src="fish1.png" class="fish f7" id="f7">
+        <img src="fish1.png" class="fish f8" id="f8">
+        <img src="fish1.png" class="fish f9" id="f9">
+        <img src="fish1.png" class="fish f10" id="f10">
+    </div>
+<!--     <div id="d11" style="height: 400px;width: 100%;background: pink"></div>
     <div id="d12" style="height: 400px;width: 100%;background: orchid"></div>
     <div id="d13" style="height: 400px;width: 100%;background: pink"></div>
     <div id="d14" style="height: 400px;width: 100%;background: orchid"></div>
     <div id="d15" style="height: 400px;width: 100%;background: pink"></div>
-    <div id="d16" style="height: 400px;width: 100%;background: orchid"></div>
-    <div id="yoyo" class="yoyo"></div>
-
-
+    <div id="d16" style="height: 400px;width: 100%;background: orchid"></div> -->
+    <div id="yoyo" class="yoyo">
+        <img src="radar.png">
+    </div>
 
     <script type="text/javascript">
         function rotateNongYoyo(){
@@ -90,18 +280,32 @@
         window.addEventListener("scroll", rotateNongYoyo);
 
         function blinkThat(){
-            let ey = d3.offsetTop;
-            let ebottom = ey+d3.offsetHeight; 
+            let ey = tooPla.offsetTop;
+            let ebottom = ey+tooPla.offsetHeight; 
             let nowTop = window.pageYOffset;
             let nowBottom = nowTop+window.innerHeight;
             // console.log(ey);
             // console.log(nowBottom);
             // console.log(nowBottom>ey+300 && nowTop<ebottom-100);
-            if (nowBottom>ey+300 && nowTop<ebottom-100) {
-                d3.classList.add('blink');
+            if (nowBottom>ey+700 && nowTop<ebottom-50) {
+                g1.classList.add('blink');
+                g2.classList.add('blink');
+                g3.classList.add('blink');
+                g4.classList.add('blink');
+                g5.classList.add('blink');
+                g6.classList.add('blink');
+                g7.classList.add('blink');
+                g8.classList.add('blink');
             }
             else{
-                d3.classList.remove('blink');
+                g1.classList.remove('blink');
+                g2.classList.remove('blink');
+                g3.classList.remove('blink');
+                g4.classList.remove('blink');
+                g5.classList.remove('blink');
+                g6.classList.remove('blink');
+                g7.classList.remove('blink');
+                g8.classList.remove('blink');
             }
         }
         window.addEventListener("scroll", blinkThat);
@@ -114,8 +318,35 @@
             f3.style.marginTop = `-${y*2}px`;
             f4.style.marginTop = `-${y*1.5}px`;
             f5.style.marginTop = `-${y*0.7}px`;
+            f6.style.marginTop = `-${y}px`;
+            f7.style.marginTop = `-${y*3}px`;
+            f8.style.marginTop = `-${y*2}px`;
+            f9.style.marginTop = `-${y*1.5}px`;
+            f10.style.marginTop = `-${y*0.7}px`;
+            // f11.style.marginTop = `-${y*0.5}px`;
+            // f12.style.marginTop = `-${y*0.6}px`;
+
+            g1.style.marginTop = `-${y*3}px`;
+            g2.style.marginTop = `-${y*1.8}px`;
+            g3.style.marginTop = `-${y*1.4}px`;
+            g4.style.marginTop = `-${y*1.9}px`;
+            g5.style.marginTop = `-${y*3}px`;
+            g6.style.marginTop = `-${y*1.8}px`;
+            // g7.style.marginTop = `-${y*0.6}px`;
+            g8.style.marginTop = `-${y*1.9}px`;
         }
         window.addEventListener("scroll", plaToo);
+
+        // move side when scroll
+        window.addEventListener("scroll", drive);
+        function drive() {
+            maxHeight = document.body.getBoundingClientRect().height - window.innerHeight;
+            nowScrollPoint = window.pageYOffset;
+            direction = Math.ceil((nowScrollPoint * 100) / maxHeight)
+            f11.style.marginLeft= `${direction}px`
+            f12.style.marginRight= `${direction*2}px`
+            g7.style.marginRight= `${direction*2}px`
+        }
     </script>
 </body>
 </html>

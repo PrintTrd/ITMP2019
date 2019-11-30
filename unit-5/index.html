@@ -68,7 +68,7 @@
         .then(json => ready(json))
         function ready(json){
             console.log(json);
-            // เขียนต่อ ให้ข้อมูลคนแรก ไปแสดงผลบนหน้าเว็บ
+            //ให้ข้อมูลคนแรก ไปแสดงผลบนหน้าเว็บ
             user = json;
             if (localStorage.nowIndex != undefined) {
                 nowIndex = localStorage.nowIndex;
@@ -76,7 +76,7 @@
             if (localStorage.fav != undefined) {
                 fav = JSON.parse(localStorage.fav);//แปลงข้อมูลยาวๆเป็นJSON สั้นลง
             }
-            renData();  
+            renData();
         }
         function renData(){
             u_fav.style.opacity = fav[nowIndex]+".2";
