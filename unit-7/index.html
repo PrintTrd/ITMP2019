@@ -41,6 +41,7 @@
     body {
         font-family: 'Sue Ellen Francisco', cursive !important;
         color: #fffced !important;
+        overflow: hidden;
     }
 
     .yoyo{
@@ -171,7 +172,12 @@
         right: 50px;
     }
 
-
+    .glow {
+        position: absolute;
+        width: 100px;
+        transition: all .2s
+        z-index: 2;
+    }
     .glow1 {
         width: 20px;
         height: 20px;
@@ -193,6 +199,14 @@
         border-radius: 50%;
         box-shadow: 0 0 40px 20px #fff, 0 0 100px 50px #ffc107, 0 0 100px 50px #ffeb3b;
     }
+    .driver {
+        top: -50px;
+        left: 45vw;
+        margin: auto;
+        position: absolute;
+        width: 20vw;
+        transform: rotate(90deg);
+    }
 
     .quote {
         color: #fffced;
@@ -207,6 +221,14 @@
     .quote > b {
         font-size: 2em
     }
+/*    .background {
+        position: absolute;
+        top: -10%;
+        left: -10%;
+        width: 120%;
+        height: 120%;
+        z-index: -1;
+    }*/
 </style>
 
     <title>Hello Ocean World</title>
@@ -233,6 +255,7 @@
     <div id="d7" style="height: 400px;width: 100%;background: pink"></div>
     <div id="d8" style="height: 400px;width: 100%;background: orchid"></div> -->
     <div id="tooPla">
+        <img src="diving-girl.png" class="driver" id="driver">
         <h2>Under the <i style="text-decoration: line-through;">sea</i> fish tank ~</h2>
         <img src="fish1.png" class="fish f1" id="f1">
         <img src="fish1.png" class="fish f2" id="f2">
@@ -241,15 +264,16 @@
         <img src="fish1.png" class="fish f5" id="f5">
     </div>
     <div id="d9" style="height: 400px;width: 100%;background: linear-gradient(180deg, rgba(3,24,90,1) 0%, rgba(0,0,70,1) 100%)">
-        <div class="fish g1 glow1" id="g1"></div>
-        <div class="fish g2 glow2" id="g2"></div>
-        <div class="fish g3 glow3" id="g3"></div>
-        <div class="fish g4 glow1" id="g4"></div>
+<!--         <img src="bg.jpg" class="background"> -->
+        <div class="glow g1 glow1" id="g1"></div>
+        <div class="glow g2 glow2" id="g2"></div>
+        <div class="glow g3 glow3" id="g3"></div>
+        <div class="glow g4 glow1" id="g4"></div>
     </div>
     <div id="d10" style="height: 400px;width: 100%;background: linear-gradient(180deg, rgba(0,0,70,1) 0%, rgba(5,1,18,1) 100%)">
-        <div class="fish g5 glow1" id="g5"></div>
-        <div class="fish g6 glow2" id="g6"></div>
-        <div class="fish g8 glow1" id="g8"></div>
+        <div class="glow g5 glow1" id="g5"></div>
+        <div class="glow g6 glow2" id="g6"></div>
+        <div class="glow g8 glow1" id="g8"></div>
 
         <img src="submarine.png"class="f11" id="f11">
         <div class="DeepFish" id="df">
@@ -325,7 +349,7 @@
             f10.style.marginTop = `-${y*0.7}px`;
             // f11.style.marginTop = `-${y*0.5}px`;
             // f12.style.marginTop = `-${y*0.6}px`;
-
+            driver.style.marginTop= `${y*0.25}px`;
             g1.style.marginTop = `-${y*3}px`;
             g2.style.marginTop = `-${y*1.8}px`;
             g3.style.marginTop = `-${y*1.4}px`;
@@ -343,10 +367,26 @@
             maxHeight = document.body.getBoundingClientRect().height - window.innerHeight;
             nowScrollPoint = window.pageYOffset;
             direction = Math.ceil((nowScrollPoint * 100) / maxHeight)
+            // driver.style.marginLeft= `${direction*12}px`
             f11.style.marginLeft= `${direction}px`
             f12.style.marginRight= `${direction*2}px`
             g7.style.marginRight= `${direction*2}px`
         }
+
+        // $.fn.parallax = function(resistance, mouse) {
+        //   $el = $(this);
+        //   TweenLite.to($el, 0.2, {
+        //     x: -((mouse.clientX - window.innerWidth / 2) / resistance),
+        //     y: -((mouse.clientY - window.innerHeight / 2) / resistance)
+        //   });
+        // };
+
+        // $(document).mousemove(function(e) {
+        //   $(".driver").parallax(-30, e);
+        //   $(".glow1").parallax(10, e);
+        //   $(".glow2").parallax(20, e);
+        //   $(".glow3").parallax(30, e);
+        // });
     </script>
 </body>
 </html>
