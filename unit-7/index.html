@@ -5,7 +5,7 @@
         /* custom scrollbar */
     ::-webkit-scrollbar {
         width: 15px;
-        background-color: #F5F5F5;
+        background-color: #020f53;
     }
     ::-webkit-scrollbar-track {
         box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
@@ -61,11 +61,17 @@
     #tooPla{
         height: 600px;
         background: linear-gradient(180deg, rgba(9,60,121,1) 0%, rgba(3,24,90,1) 100%);
-        position: relative;
         font-size: 3em;
         text-align: center;
+        position: relative;
+/*        height: 100vh;
+        width: 100%;*/
+/*        display: flex;
+        justify-content: center;
+        align-items: center;*/
     }
     .fish{
+        display: block;
         position: absolute;
         width: 100px;
         transition: all .2s
@@ -118,26 +124,14 @@
         top: 1000px;
         left: 500px;
         transform: scale(8);
-/*        animation: drive 4.5s linear alternate infinite;*/
     }
-/*    @keyframes drive {
-          from { left: 500px; }
-          to   { left: 550px; }
-    }*/
+
     .f12 {
         top: 2400px;
         right: 200px;
         transform: scale(3);
-/*        animation: swim 2s linear alternate infinite;*/
     }
-/*    @keyframes swim {
-          from { right: 200px; }
-          to   { right: 300px; }
-    }
-    @keyframes light {
-          from { right: 325px; }
-          to   { right: 425px; }
-    }*/
+
     .g1 {
         top: 2850px;
         left: 200px;
@@ -165,8 +159,7 @@
     .g7 {
         top: 2380px;
         right: 325px;
-/*        animation: light 2s linear alternate infinite;
-*/    }
+    }
     .g8 {
         top: 3850px;
         right: 50px;
@@ -221,14 +214,6 @@
     .quote > b {
         font-size: 2em
     }
-/*    .background {
-        position: absolute;
-        top: -10%;
-        left: -10%;
-        width: 120%;
-        height: 120%;
-        z-index: -1;
-    }*/
 </style>
 
     <title>Hello Ocean World</title>
@@ -237,7 +222,6 @@
     <link href="https://fonts.googleapis.com/css?family=Sue+Ellen+Francisco&display=swap" rel="stylesheet">
 </head>
 <body>
-
     <div id="d1" style="height: 450px;width: 100%;background: linear-gradient(180deg, rgba(26,168,213,1) 0%, rgba(20,132,182,1) 100%)">
         <div class="quote">
             <p>“There's nothing wrong with enjoying looking at the surface of the ocean itself, except that when you finally see what goes on underwater,you realize that you've been missing the whole point of the ocean. Staying on the surface all the time is like going to the circus and staring at the outside of the tent.”</p>
@@ -264,7 +248,6 @@
         <img src="fish1.png" class="fish f5" id="f5">
     </div>
     <div id="d9" style="height: 400px;width: 100%;background: linear-gradient(180deg, rgba(3,24,90,1) 0%, rgba(0,0,70,1) 100%)">
-<!--         <img src="bg.jpg" class="background"> -->
         <div class="glow g1 glow1" id="g1"></div>
         <div class="glow g2 glow2" id="g2"></div>
         <div class="glow g3 glow3" id="g3"></div>
@@ -296,6 +279,7 @@
         <img src="radar.png">
     </div>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script>
     <script type="text/javascript">
         function rotateNongYoyo(){
             let r = window.pageYOffset;
@@ -372,21 +356,21 @@
             f12.style.marginRight= `${direction*2}px`
             g7.style.marginRight= `${direction*2}px`
         }
-
-        // $.fn.parallax = function(resistance, mouse) {
-        //   $el = $(this);
-        //   TweenLite.to($el, 0.2, {
-        //     x: -((mouse.clientX - window.innerWidth / 2) / resistance),
-        //     y: -((mouse.clientY - window.innerHeight / 2) / resistance)
-        //   });
-        // };
-
-        // $(document).mousemove(function(e) {
-        //   $(".driver").parallax(-30, e);
-        //   $(".glow1").parallax(10, e);
-        //   $(".glow2").parallax(20, e);
-        //   $(".glow3").parallax(30, e);
+        // $("#tooPla").mousemove(function(e) {
+        //   parallaxIt(e, ".driver", -100);
+        //   parallaxIt(e, ".fish", -30);
         // });
+
+        // function parallaxIt(e, target, movement) {
+        //   var $this = $("#tooPla");
+        //   var relX = e.pageX - $this.offset().left;
+        //   var relY = e.pageY - $this.offset().top;
+
+        //   TweenMax.to(target, 1, {
+        //     x: (relX - $this.width() / 2) / $this.width() * movement,
+        //     y: (relY - $this.height() / 2) / $this.height() * movement
+        //   });
+        // }
     </script>
 </body>
 </html>
